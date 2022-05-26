@@ -20,7 +20,8 @@ app.get("/counter", (req, res) => {
 
 app.post("/counter/increment", (req, res) => {
   console.log(req.body);
-  const incrementCounter = { ...req.body, increment: 1 };
+  const incrementCounter = { ...req.body };
+  incrementCounter.counter++;
   res.json(incrementCounter);
 });
 
