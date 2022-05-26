@@ -1,3 +1,3 @@
-const counter = [{ id: 1, count: 0 }];
+const counter = { counter: 0 };
 
 module.exports = counter;

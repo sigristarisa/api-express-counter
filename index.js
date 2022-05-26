@@ -6,6 +6,7 @@ const counter = require("./data/counter");
 const app = express();
 app.use(morgan("dev"));
 app.use(cors());
+app.use(express.json());
 const port = 3030;
 
 app.get("/", (req, res) => {
@@ -15,6 +16,12 @@ app.get("/", (req, res) => {
 
 app.get("/counter", (req, res) => {
   res.json({ counter: counter });
+});
+
+app.post("/counter/increment", (req, res) => {
+  console.log(req.body);
+  const incrementCounter = { ...req.body, increment: 1 };
+  res.json(incrementCounter);
 });
 
 app.listen(port, () => {
